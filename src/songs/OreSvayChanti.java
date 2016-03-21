@@ -1,10 +1,15 @@
 package songs;
 
+import instruments.SawtoothInst;
+import instruments.SineInst;
+import instruments.TriangleInst;
+import jm.audio.Instrument;
 import static jm.constants.DrumMap.ACOUSTIC_BASS_DRUM;
 import static jm.constants.DrumMap.CLOSED_HI_HAT;
 import static jm.constants.DrumMap.LOW_CONGA;
 import static jm.constants.DrumMap.OPEN_HI_CONGA;
 import static jm.constants.Durations.*;
+import jm.constants.Instruments;
 import static jm.constants.Panning.PAN_CENTER;
 import static jm.constants.Panning.PAN_LEFT;
 import static jm.constants.Panning.PAN_RIGHT;
@@ -21,6 +26,7 @@ import jm.music.data.Phrase;
 import jm.music.data.Score;
 import jm.music.tools.Mod;
 import jm.util.Play;
+import jm.util.Write;
 import models.Buntor;
 import models.Mesure;
 import models.StyleBassRoamvong;
@@ -173,6 +179,7 @@ public class OreSvayChanti {
                 }
             }
         }
+        phraseBass.setStartTime(4.0);       
         
         for(int i=0; i < 1; i++) {
             phraseDrumsAB.add(new Note(ACOUSTIC_BASS_DRUM, DQN, FFF, PAN_LEFT));
@@ -184,9 +191,7 @@ public class OreSvayChanti {
         for(int i=0; i < 2; i++) {
             phraseDrumsCB.add(new Note(56, HN, FF, PAN_RIGHT));
         }
-        phraseDrumsCB.setStartTime(4.0);
-                
-        phraseBass.setStartTime(4.0);        
+        phraseDrumsCB.setStartTime(4.0);                         
         
         for(int i=0; i < 1; i++) {
             phraseDrumsLC.add(new Note(REST, EN));
@@ -240,6 +245,6 @@ public class OreSvayChanti {
         score.setTempo(135);
         
         //View.show(score);
-        Play.midi(score);
+        Play.midi(score);        
     }
 }
