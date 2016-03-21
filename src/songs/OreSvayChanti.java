@@ -1,7 +1,5 @@
 package songs;
 
-import java.util.ArrayList;
-import java.util.List;
 import static jm.constants.DrumMap.ACOUSTIC_BASS_DRUM;
 import static jm.constants.DrumMap.CLOSED_HI_HAT;
 import static jm.constants.DrumMap.LOW_CONGA;
@@ -23,12 +21,13 @@ import jm.music.data.Phrase;
 import jm.music.data.Score;
 import jm.music.tools.Mod;
 import jm.util.Play;
+import models.Buntor;
 import models.Mesure;
 import models.StyleBassRoamvong;
 
 public class OreSvayChanti {
     public static void main(String[] args) {
-        Score score = new Score("Ore Svawy Chanti !");
+        Score score = new Score("Ore Svay Chanti !");
         
         Part flute = new Part(FLUTE, 0);
         Part trumpet = new Part(TRUMPET, 1);
@@ -70,41 +69,22 @@ public class OreSvayChanti {
                 }
             }
         }
-        //mesures.setVolume(P);
         
-        //Mesure mesuresTrumpet = new Mesure(phraseTrumpet);
-        phraseTrumpet.add(new Note(REST, DQN));
-        phraseTrumpet.add(new Note(G4, EN));
-        phraseTrumpet.add(new Note(A4, EN));
-        phraseTrumpet.add(new Note(G4, EN));
-        phraseTrumpet.add(new Note(E4, EN));
-        phraseTrumpet.add(new Note(D4, EN));
-        phraseTrumpet.add(new Note(E4, HN));
-        phraseTrumpet.add(new Note(REST, HN));
-        phraseTrumpet.add(new Note(REST, WHOLE_NOTE*2));
-        phraseTrumpet.add(new Note(REST, QN));
-        phraseTrumpet.add(new Note(G4, EN));
-        phraseTrumpet.add(new Note(E4, EN));
-        phraseTrumpet.add(new Note(E4, DQN));
-        phraseTrumpet.add(new Note(REST, EN));
-        phraseTrumpet.add(new Note(REST, WHOLE_NOTE*3));
-        phraseTrumpet.add(new Note(REST, QN));
-        phraseTrumpet.add(new Note(D4, EN));
-        phraseTrumpet.add(new Note(C4, EN));
-        phraseTrumpet.add(new Note(C4, DQN));
-        phraseTrumpet.add(new Note(REST, EN));
-        phraseTrumpet.add(new Note(REST, WN*3));
-        phraseTrumpet.add(new Note(REST, DQN));
-        phraseTrumpet.add(new Note(G4, EN));
-        phraseTrumpet.add(new Note(A4, EN));
-        phraseTrumpet.add(new Note(G4, EN));
-        phraseTrumpet.add(new Note(E4, EN));
-        phraseTrumpet.add(new Note(D4, EN));
-        phraseTrumpet.add(new Note(C4, HN));
-        phraseTrumpet.add(new Note(REST, HN));
-        phraseTrumpet.add(new Note(REST, WN*2));
-        phraseTrumpet.setStartTime(12);
-        
+        Buntor buntorTrumpet = new Buntor(phraseTrumpet, 17*2);
+        buntorTrumpet.ajouter(3, new int[] {REST, G4, A4, G4, E4, D4}, new double[] {DQN, EN, EN, EN, EN, EN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(4, new int[] {E4, REST}, new double[] {HN, HN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(7, new int[] {REST, G4, E4, E4, REST}, new double[] {QN, EN, EN, DQN, EN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(11, new int[] {REST, D4, C4, C4, REST}, new double[] {QN, EN, EN, DQN, EN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(15, new int[] {REST, G4, A4, G4, E4, D4}, new double[] {DQN, EN, EN, EN, EN, EN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(16, new int[] {C4, REST}, new double[] {HN, HN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(2+17, new int[] {REST, G4, A4, G4, E4, D4}, new double[] {DQN, EN, EN, EN, EN, EN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(3+17, new int[] {E4, REST}, new double[] {HN, HN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(6+17, new int[] {REST, G4, E4, E4, REST}, new double[] {QN, EN, EN, DQN, EN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(10+17, new int[] {REST, D4, C4, C4, REST}, new double[] {QN, EN, EN, DQN, EN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(14+17, new int[] {REST, G4, A4, G4, E4, D4}, new double[] {DQN, EN, EN, EN, EN, EN}, F, PAN_CENTER);
+        buntorTrumpet.ajouter(15+17, new int[] {C4, REST}, new double[] {HN, HN}, F, PAN_CENTER);
+        buntorTrumpet.go();        
+
         int[] accord = new int[3];
         accord[0] = REST;
         accord[1] = REST;
@@ -231,7 +211,7 @@ public class OreSvayChanti {
         }
         phraseDrumsCHH.setStartTime(WHOLE_NOTE);
         
-        Mod.repeat(phraseTrumpet, 2);
+        //Mod.repeat(phraseTrumpet, 2);
         Mod.repeat(phraseBass, 2);
         Mod.repeat(phraseDrumsAB, 16*2);
         Mod.repeat(phraseDrumsCB, 16*2);
