@@ -29,5 +29,5 @@ public class StyleSaravan extends Part {
     // mutateur(s)
 
     // autre(s)
-
+    
 }

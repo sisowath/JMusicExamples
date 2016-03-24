@@ -14,6 +14,7 @@ import jm.music.data.*;
 import jm.music.tools.Mod;
 import jm.util.Play;
 import jm.util.View;
+import models.Mesure;
 
 public class NoreEuhSreyNore {
     public static void main(String[] args) {
@@ -25,7 +26,7 @@ public class NoreEuhSreyNore {
         Part piano = new Part(PIANO, 2);
         Part bass = new Part("ACOUSTIC_BASS", ACOUSTIC_BASS, 3);
         
-        Phrase phraseMelody = new Phrase(0.0);
+        Phrase phraseFlute = new Phrase(0.0);
         Phrase phraseGuitar = new Phrase(0.0);
         CPhrase phraseChord = new CPhrase(0.0);
         Phrase phraseBass = new Phrase(0.0);
@@ -33,50 +34,28 @@ public class NoreEuhSreyNore {
         Phrase phrCB = new Phrase(0.0);
         Phrase phrCHH = new Phrase(0.0);
         
-        phraseMelody.add(new Note(REST, DHN));
-        for(int i=0; i < 2; i ++) {
-            for(int j=0; j < 2; j++) {
-                phraseMelody.add(new Note(A3, EN));
-                phraseMelody.add(new Note(C4, EN));
-                phraseMelody.add(new Note(D4, HN));
-                phraseMelody.add(new Note(REST, EN));
-                phraseMelody.add(new Note(C4, EN));
-                phraseMelody.add(new Note(E4, EN));
-                phraseMelody.add(new Note(G4, EN));
-                phraseMelody.add(new Note(D4, DQN));
-                phraseMelody.add(new Note(C4, EN));
-                phraseMelody.add(new Note(A3, QN));
-                phraseMelody.add(new Note(C4, QN));
-                phraseMelody.add(new Note(D4, QN));
-                phraseMelody.add(new Note(C4, QN));
-                phraseMelody.add(new Note(REST, EN));
-                phraseMelody.add(new Note(C4, EN));
-                phraseMelody.add(new Note(E4, EN));
-                phraseMelody.add(new Note(G4, EN));
-                phraseMelody.add(new Note(D4, HN));
-                phraseMelody.add(new Note(REST, QN));
-            }
-            for(int j=0; j < 2; j++) {
-                phraseMelody.add(new Note(E3, EN));
-                phraseMelody.add(new Note(G3, EN));
-                phraseMelody.add(new Note(A3, QN));
-                phraseMelody.add(new Note(C4, DQN));
-                phraseMelody.add(new Note(A3, EN));
-                phraseMelody.add(new Note(D4, EN));
-                phraseMelody.add(new Note(C4, EN));
-                phraseMelody.add(new Note(A3, DQN));
-                phraseMelody.add(new Note(G3, EN));
-                phraseMelody.add(new Note(E3, QN));
-                phraseMelody.add(new Note(G3, QN));
-                phraseMelody.add(new Note(A3, QN));
-                phraseMelody.add(new Note(C4, DQN));            
-                phraseMelody.add(new Note(A3, EN));
-                phraseMelody.add(new Note(D4, EN));
-                phraseMelody.add(new Note(C4, EN));
-                phraseMelody.add(new Note(A3, HN));
-                phraseMelody.add(new Note(REST, QN));
+        Mesure mesuresFlute = new Mesure(phraseFlute);
+        mesuresFlute.ajouter(new int[] {REST, A3, C4}, new double[] {DHN, EN, EN});
+        for(int i=0; i < 2; i++) {
+            mesuresFlute.ajouter(new int[] {D4, REST, C4, E4, G4}, new double[] {HN, EN, EN, EN, EN});
+            mesuresFlute.ajouter(new int[] {D4, C4, A3, C4}, new double[] {DQN, EN, QN, QN});
+            mesuresFlute.ajouter(new int[] {D4, C4, C4, E4, G4}, new double[] {QN, DQN, EN, EN, EN});
+            if(i==0) {
+                mesuresFlute.ajouter(new int[] {D4, REST, C4, A3, C4}, new double[] {DHN, EN, EN, EN, EN});            
+            } else {
+                mesuresFlute.ajouter(new int[] {D4, REST, E3, G3}, new double[] {HN, QN, EN, EN});            
             }
         }
+        for(int i=0; i < 2; i++) {
+            mesuresFlute.ajouter(new int[] {A3, C4, C4, A3, D4, C4}, new double[] {QN, QN, EN, EN, EN, EN});
+            mesuresFlute.ajouter(new int[] {A3, G3, E3, G3}, new double[] {DQN, EN, QN, QN});
+            mesuresFlute.ajouter(new int[] {A3, C4, A3, D4, C4}, new double[] {QN, DQN, EN, EN, EN});
+            if(i == 0) {
+                mesuresFlute.ajouter(new int[] {A3, REST, G3, E3, G3}, new double[] {HN, EN, EN, EN, EN});                                
+            } else {
+                mesuresFlute.ajouter(new int[] {A3, REST, A3, C4}, new double[] {DHN, EN, EN, EN});                                
+            }
+        }                
         
         for(int i=0; i < 2; i++) {
             phraseGuitar.add(new Note(D5, EN, F, PAN_LEFT));
@@ -248,10 +227,10 @@ public class NoreEuhSreyNore {
         Mod.repeat(phrCHH, 2);
         
         Mod.transpose(phraseChord, 12);
-        Mod.transpose(phraseMelody, 12);   
+        Mod.transpose(phraseFlute, 12);   
         Mod.transpose(phraseBass, 12);
         
-        flute.add(phraseMelody);
+        flute.add(phraseFlute);
         guitar.add(phraseGuitar);
         piano.addCPhrase(phraseChord);
         bass.add(phraseBass);  
