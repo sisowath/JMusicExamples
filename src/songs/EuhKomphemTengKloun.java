@@ -29,25 +29,31 @@ public class EuhKomphemTengKloun {
         Mesure mesures = new Mesure(phraseFlute);
         mesures.ajouter(new int[] {REST, A4, E5}, new double[] {HN, DQN, EN});
         for(int i=0; i < 2; i++) {
-            mesures.ajouter(new int[] {E5, A4, C5, D5}, new double[] {DQN, EN, QN, QN});
-            mesures.ajouter(new int[] {E5, A4, E5}, new double[] {HN, DQN, EN});
-            mesures.ajouter(new int[] {D5, A4, C5, D5, C5}, new double[] {DQN, EN, QN, EN, EN});
-            if(i == 0 ) {
-                mesures.ajouter(new int[] {D5, A4, E5}, new double[] {HN, DQN, EN});            
-            } else {
-                mesures.ajouter(new int[] {D5, E5, G5, E5, D5}, new double[] {HN, EN, EN, EN, EN, EN});            
-            }
+            for(int j=0; j < 2; j++) {
+                if(j == 0) {
+                    mesures.ajouter(new int[] {E5, A4, C5, D5}, new double[] {DQN, EN, QN, QN});            
+                } else {
+                    mesures.ajouter(new int[] {E5, A4, C5, D5, G5}, new double[] {DQN, EN, QN, EN, EN});            
+                }
+                mesures.ajouter(new int[] {E5, A4, E5}, new double[] {HN, DQN, EN});
+                mesures.ajouter(new int[] {D5, A4, C5, A4, E5}, new double[] {DQN, EN, QN, EN, EN});
+                if(j == 0 ) {
+                    mesures.ajouter(new int[] {D5, A4, E5}, new double[] {HN, DQN, EN});            
+                } else {
+                    mesures.ajouter(new int[] {D5, E5, G5, E5, D5}, new double[] {HN, EN, EN, EN, EN, EN});            
+                }
+            }        
+            mesures.ajouter(new int[] {C5, D5, A4, C5, D5}, new double[] {QN, EN, EN, QN, QN});
+            mesures.ajouter(new int[] {A4, C5, D5}, new double[] {HN, DQN, EN});
+            mesures.ajouter(new int[] {A4, G4, E4, D4}, new double[] {QN, QN, QN, QN});
+            mesures.ajouter(new int[] {E4, C4, D4}, new double[] {HN, DQN, EN});
+            mesures.ajouter(new int[] {E4, G4, E4, D4}, new double[] {DQN, EN, QN, QN});
+            mesures.ajouter(new int[] {C4, G4, A4}, new double[] {HN, DQN, EN});
+            mesures.ajouter(new int[] {B4, C5, B4, A4, B4, C5}, new double[] {EN, EN, EN, EN, QN, QN});
+            mesures.ajouter(new int[]{D5, A4, E5}, new double[] {HN, DQN, EN});
+            mesures.ajouter(new int[] {D5, E5, D5, C5, A4, C5, G4, C5}, new double[] {EN, EN, EN, EN, EN, EN, EN, EN});
+            mesures.ajouter(new int[] {A4, A4, E5}, new double[] {HN, DQN, EN});        
         }
-        mesures.ajouter(new int[] {C5, D5, A4, C5, D5}, new double[] {QN, EN, EN, QN, QN});
-        mesures.ajouter(new int[] {A4, C5, D5}, new double[] {HN, DQN, EN});
-        mesures.ajouter(new int[] {A4, G4, E4, D4}, new double[] {QN, QN, QN, QN});
-        mesures.ajouter(new int[] {E4, C4, D4}, new double[] {HN, DQN, EN});
-        mesures.ajouter(new int[] {E4, G4, E4, D4}, new double[] {DQN, EN, QN, QN});
-        mesures.ajouter(new int[] {C4, G4, A4}, new double[] {HN, DQN, EN});
-        mesures.ajouter(new int[] {B4, C5, B4, A4, B4, C5}, new double[] {EN, EN, EN, EN, QN, QN});
-        mesures.ajouter(new int[]{D5, A4, E5}, new double[] {HN, DQN, EN});
-        mesures.ajouter(new int[] {D5, E5, D5, C5, A4, C5, G4, C5}, new double[] {EN, EN, EN, EN, EN, EN, EN, EN});
-        mesures.ajouter(new int[] {A4, A4, E5}, new double[] {HN, DQN, EN});        
         flute.add(phraseFlute);
         
         StyleBassSaravan sbs = new StyleBassSaravan(phraseBass);
@@ -81,7 +87,8 @@ public class EuhKomphemTengKloun {
         score.add(bass);
         score.add(drums);
         
-        Mod.repeat(drums, 18);
+        Mod.repeat(drums, 18*2);
+        Mod.repeat(bass, 2);
         
         score.setTempo(110);
         Play.midi(score);

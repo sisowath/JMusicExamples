@@ -37,26 +37,27 @@ public class NoreEuhSreyNore {
         Mesure mesuresFlute = new Mesure(phraseFlute);
         mesuresFlute.ajouter(new int[] {REST, A3, C4}, new double[] {DHN, EN, EN});
         for(int i=0; i < 2; i++) {
-            mesuresFlute.ajouter(new int[] {D4, REST, C4, E4, G4}, new double[] {HN, EN, EN, EN, EN});
-            mesuresFlute.ajouter(new int[] {D4, C4, A3, C4}, new double[] {DQN, EN, QN, QN});
-            mesuresFlute.ajouter(new int[] {D4, C4, C4, E4, G4}, new double[] {QN, DQN, EN, EN, EN});
-            if(i==0) {
-                mesuresFlute.ajouter(new int[] {D4, REST, C4, A3, C4}, new double[] {DHN, EN, EN, EN, EN});            
-            } else {
-                mesuresFlute.ajouter(new int[] {D4, REST, E3, G3}, new double[] {HN, QN, EN, EN});            
+            for(int j=0; j < 2; j++) {
+                mesuresFlute.ajouter(new int[] {D4, REST, C4, E4, G4}, new double[] {HN, EN, EN, EN, EN});
+                mesuresFlute.ajouter(new int[] {D4, C4, A3, C4}, new double[] {DQN, EN, QN, QN});
+                mesuresFlute.ajouter(new int[] {D4, C4, C4, E4, G4}, new double[] {QN, DQN, EN, EN, EN});
+                if(j==0) {
+                    mesuresFlute.ajouter(new int[] {D4, REST, C4, A3, C4}, new double[] {HN, EN, EN, EN, EN});            
+                } else {
+                    mesuresFlute.ajouter(new int[] {D4, REST, E3, G3}, new double[] {HN, QN, EN, EN});            
+                }
             }
+            for(int j=0; j < 2; j++) {
+                mesuresFlute.ajouter(new int[] {A3, C4, C4, A3, D4, C4}, new double[] {QN, QN, EN, EN, EN, EN});
+                mesuresFlute.ajouter(new int[] {A3, G3, E3, G3}, new double[] {DQN, EN, QN, QN});
+                mesuresFlute.ajouter(new int[] {A3, C4, A3, D4, C4}, new double[] {QN, DQN, EN, EN, EN});
+                if(j == 0) {
+                    mesuresFlute.ajouter(new int[] {A3, REST, G3, E3, G3}, new double[] {HN, EN, EN, EN, EN});                                
+                } else {
+                    mesuresFlute.ajouter(new int[] {A3, REST, A3, C4}, new double[] {HN, QN, EN, EN});                                
+                }
+            }                
         }
-        for(int i=0; i < 2; i++) {
-            mesuresFlute.ajouter(new int[] {A3, C4, C4, A3, D4, C4}, new double[] {QN, QN, EN, EN, EN, EN});
-            mesuresFlute.ajouter(new int[] {A3, G3, E3, G3}, new double[] {DQN, EN, QN, QN});
-            mesuresFlute.ajouter(new int[] {A3, C4, A3, D4, C4}, new double[] {QN, DQN, EN, EN, EN});
-            if(i == 0) {
-                mesuresFlute.ajouter(new int[] {A3, REST, G3, E3, G3}, new double[] {HN, EN, EN, EN, EN});                                
-            } else {
-                mesuresFlute.ajouter(new int[] {A3, REST, A3, C4}, new double[] {DHN, EN, EN, EN});                                
-            }
-        }                
-        
         for(int i=0; i < 2; i++) {
             phraseGuitar.add(new Note(D5, EN, F, PAN_LEFT));
             phraseGuitar.add(new Note(D5, EN, F, PAN_LEFT));

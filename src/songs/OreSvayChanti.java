@@ -57,7 +57,11 @@ public class OreSvayChanti {
             for(int j=0; j < 2; j++) {
                 mesuresFlute.ajouter(new int[] {REST, E4, E4, E4}, new double[] {QN, QN, QN, QN});
                 mesuresFlute.ajouter(new int[] {E4, G4, E4, D4}, new double[] {DQN, EN, QN, QN});
-                mesuresFlute.ajouter(new int[] {C4, A3, C4, D4}, new double[] {DQN, EN, QN, QN});
+                if(i == 0) {
+                    mesuresFlute.ajouter(new int[] {C4, A3, C4, D4}, new double[] {DQN, EN, QN, QN});                
+                } else {
+                    mesuresFlute.ajouter(new int[] {C4, D4, C4, A3, C4, D4}, new double[] {EN, EN, EN, EN, QN, QN});                
+                }
                 if(j == 0) {
                     mesuresFlute.ajouter(new int[] {E4, REST}, new double[] {DHN, QN});
                 } else if(j == 1) {
@@ -65,9 +69,17 @@ public class OreSvayChanti {
                 }
             }
             for(int j=0; j < 2; j++) {
-                mesuresFlute.ajouter(new int[] {D4, D4}, new double[] {HN, HN});
+                if(i == 0) {
+                    mesuresFlute.ajouter(new int[] {D4, D4}, new double[] {HN, HN});                
+                } else {
+                    mesuresFlute.ajouter(new int[] {D4, E4, D4}, new double[] {HN, DQN, EN});                
+                }
                 mesuresFlute.ajouter(new int[] {D4, C4, A3, C4}, new double[] {DQN, EN, QN, QN});
-                mesuresFlute.ajouter(new int[] {D4, G4, E4, D4}, new double[] {DQN, EN, QN, QN});
+                if(i == 0 ) {
+                    mesuresFlute.ajouter(new int[] {D4, G4, E4, D4}, new double[] {DQN, EN, QN, QN});                
+                } else {
+                    mesuresFlute.ajouter(new int[] {D4, E4, D4, G4, E4, D4}, new double[] {EN, EN, EN, EN, QN, QN});                
+                }
                 if(j == 0) {
                     mesuresFlute.ajouter(new int[] {C4, REST, C4}, new double[] {HN, QN, QN});
                 } else if(j == 1) {
