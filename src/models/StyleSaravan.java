@@ -16,10 +16,10 @@ public class StyleSaravan extends Part {
         this.phraseDrumSnare.setStartTime(WN);
         this.phraseCHH.setStartTime(WN);
         this.phraseDrumSnare.add(new Note(ACOUSTIC_BASS_DRUM, QN, FF));
-        this.phraseDrumSnare.add(new Note(ACOUSTIC_SNARE, QN, FF));
+        this.phraseDrumSnare.add(new Note(ELECTRIC_SNARE, QN, FF));
         this.phraseDrumSnare.add(new Note(ACOUSTIC_BASS_DRUM, EN, FF));
         this.phraseDrumSnare.add(new Note(ACOUSTIC_BASS_DRUM, EN, FF));
-        this.phraseDrumSnare.add(new Note(ACOUSTIC_SNARE, QN, FF));
+        this.phraseDrumSnare.add(new Note(ELECTRIC_SNARE, QN, FF));
         for(int i=0; i < 8; i++) { this.phraseCHH.add(new Note(CLOSED_HI_HAT, EN, F));}
         drum.add(this.phraseDrumSnare);
         drum.add(this.phraseCHH);
