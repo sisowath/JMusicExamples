@@ -254,7 +254,7 @@ public class OreSvayChanti {
         score.add(piano);
         score.add(bass);
         score.add(drums);
-        score.setTempo(135);
+        score.setTempo(145);
         
         //View.show(score);
         Play.midi(score);        

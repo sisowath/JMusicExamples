@@ -5,6 +5,7 @@ import jm.constants.Panning;
 import static jm.constants.Panning.PAN_CENTER;
 import static jm.constants.Pitches.*;
 import static jm.constants.ProgramChanges.ACOUSTIC_BASS;
+import static jm.constants.ProgramChanges.ACOUSTIC_GUITAR;
 import static jm.constants.ProgramChanges.FLUTE;
 import static jm.constants.ProgramChanges.PIANO;
 import static jm.constants.Volumes.FF;
@@ -54,9 +55,13 @@ public class OmmToukKnongBeng {
                 }
             }
         }
+        Part guitar = new Part(ACOUSTIC_GUITAR, 4);
+        Phrase phraseGuitar = phraseFlute.copy();
+        guitar.add(phraseGuitar);
         flute.add(phraseFlute);        
         score.add(flute);
-        Mod.transpose(flute, +12);
+        //score.add(guitar);
+        Mod.transpose(flute, +24);
         
         Part drums = new Part("Drums", 0, 9);
         RythmeRoamvong ryhRoavong = new RythmeRoamvong(drums);        

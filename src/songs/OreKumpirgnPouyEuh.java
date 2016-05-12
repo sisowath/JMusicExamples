@@ -7,6 +7,7 @@ import static jm.constants.DrumMap.ELECTRIC_SNARE;
 import static jm.constants.Durations.*;
 import static jm.constants.Pitches.*;
 import static jm.constants.ProgramChanges.ACOUSTIC_BASS;
+import static jm.constants.ProgramChanges.FLUTE;
 import static jm.constants.ProgramChanges.SAXOPHONE;
 import static jm.constants.ProgramChanges.TRUMPET;
 import jm.music.data.Note;
@@ -20,7 +21,7 @@ public class OreKumpirgnPouyEuh {
     public static void main(String[] args) {
         Score score = new Score("Ore Kumpirgn Pouy Euh !");
         
-        Part saxophone = new Part("SAXOPHONE", SAXOPHONE, 0);
+        Part saxophone = new Part("SAXOPHONE", FLUTE, 0);
         Part trumpet = new Part(TRUMPET, 1);
         Part bass = new Part("Bass", ACOUSTIC_BASS, 2);
         Part drums = new Part("Drums", 0, 9);
